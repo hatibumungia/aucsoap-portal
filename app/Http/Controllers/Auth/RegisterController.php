@@ -11,7 +11,9 @@ use App\Models\Region;
 use App\Models\ScopeOfOperation;
 use App\Models\TypeOfApplication;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -44,6 +46,14 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function storeFile($accountName, $file): string
+    {
+        $fileName = $accountName . '-' . time() . '.' . $file->extension();
+        $filePath = 'accreditation-application';
+        $file->move(public_path($filePath), $fileName);
+        return $fileName;
     }
 
     public function showRegistrationForm()
@@ -99,7 +109,7 @@ class RegisterController extends Controller
             'cso_accreditation_number' => ['required', 'string'],
             'accreditation_expiring_date' => ['required', 'string'],
             'type_of_application_id' => ['required', 'string'],
-            'contact_person_level_' => ['required', 'string'],
+            'contact_person_level' => ['required', 'string'],
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'functional_title' => ['required', 'string'],
@@ -119,6 +129,17 @@ class RegisterController extends Controller
             'mobile_2' => ['required', 'string'],
             'whatsapp_number_2' => ['required', 'string'],
             'email_2' => ['required', 'string'],
+
+            'application_letter' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'registration_or_acknowledgement_certificate' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'certified_articles_of_association' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'bylaws' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'statutes_or_constitution_detailing_the_mandate' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'scope_and_governing_structure_or_organisational_profile' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'annual_income_and_expenditure_statement' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'names_of_all_donors_and_other_funding_sources_last_two_years' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'evidence_of_competency_in_thematic_areas' => ['required', File::types(['pdf'])->smallerThan(4096)],
+            'other_relevant_documents' => ['required', File::types(['pdf'])->smallerThan(4096)]
         ]);
     }
 
@@ -164,7 +185,7 @@ class RegisterController extends Controller
             'email_address' => $data['email_address'],
             'organisation_website' => $data['organisation_website'],
             'organisation_registration_number' => $data['organisation_registration_number'],
-            'allow_editing' => true
+            'allow_editing' => false
         ]);
 
         return with('Success');

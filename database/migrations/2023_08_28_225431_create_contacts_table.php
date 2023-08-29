@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('country_id');
+            $table->uuid('accreditation_application_id');
             $table->string('organisation_legal_name')->nullable();
             $table->string('official_acronym')->unique();
             $table->string('state_or_country');
@@ -27,11 +28,10 @@ return new class extends Migration
             $table->string('email_address');
             $table->string('organisation_website');
             $table->string('organisation_registration_number')->unique();
-            $table->boolean('allow_editing')->default(true);
+            $table->boolean('allow_editing')->default(false);
             $table->timestamps();
-//            $table->foreign('organisation_type_id')->references('id')->on('organisation_types');
+            $table->foreign('accreditation_application_id')->references('id')->on('accreditation_applications');
             $table->foreign('country_id')->references('id')->on('countries');
-//            $table->foreign('scope_of_operation_id')->references('id')->on('scope_of_operations');
         });
     }
 

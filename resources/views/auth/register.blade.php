@@ -5,7 +5,7 @@
         <!-- Timeline example  -->
         <div class="row">
             <div class="col-md-12">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
                 <!-- The timeline -->
                 <div class="timeline">
@@ -317,6 +317,118 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Application letter</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="application_letter" class="custom-file-input" id="application_letter">
+                                                <label class="custom-file-label" for="customFile">choose application letter</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Registration/acknowledgement certificate</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="registration_or_acknowledgement_certificate" class="custom-file-input" id="registration_or_acknowledgement_certificate">
+                                                <label class="custom-file-label" for="customFile">Choose Registration/acknowledgement certificate</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Certified articles of association</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="certified_articles_of_association" class="custom-file-input" id="certified_articles_of_association">
+                                                <label class="custom-file-label" for="customFile">choose Certified articles of association</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Bylaws</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="bylaws" class="custom-file-input" id="bylaws">
+                                                <label class="custom-file-label" for="customFile">choose bylaws</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Statutes/constitution detailing the mandate</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="statutes_or_constitution_detailing_the_mandate" class="custom-file-input" id="statutes_or_constitution_detailing_the_mandate">
+                                                <label class="custom-file-label" for="customFile">Choose Statutes/constitution detailing the mandate</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Scope and governing structure organisational profile</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="scope_and_governing_structure_or_organisational_profile" class="custom-file-input" id="scope_and_governing_structure_or_organisational_profile">
+                                                <label class="custom-file-label" for="customFile">choose Scope and governing structure organisational profile</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Annual income &amp; xpenditure statement</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="annual_income_and_expenditure_statement" class="custom-file-input" id="annual_income_and_expenditure_statement">
+                                                <label class="custom-file-label" for="customFile">Choose Annual income &amp; xpenditure statement</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>donors and other funding sources last two years</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="names_of_all_donors_and_other_funding_sources_last_two_years" class="custom-file-input" id="names_of_all_donors_and_other_funding_sources_last_two_years">
+                                                <label class="custom-file-label" for="customFile">Choose donors and other funding sources last two years</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Evidence competency thematic areas</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="evidence_of_competency_in_thematic_areas" class="custom-file-input" id="evidence_of_competency_in_thematic_areas">
+                                                <label class="custom-file-label" for="customFile">Choose Evidence competency thematic areas</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Other relevant documents</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="other_relevant_documents" class="custom-file-input" id="other_relevant_documents">
+                                                <label class="custom-file-label" for="customFile">Choose Other relevant documents</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>donors and other funding sources last two years</label>
+                                            <div class="custom-file">
+                                                <input type="file" name="names_of_all_donors_and_other_funding_sources_last_two_years" class="custom-file-input" id="names_of_all_donors_and_other_funding_sources_last_two_years">
+                                                <label class="custom-file-label" for="customFile">Choose donors and other funding sources last two years</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <style>
                                     .dual-list .list-group {
                                         margin-top: 8px;
