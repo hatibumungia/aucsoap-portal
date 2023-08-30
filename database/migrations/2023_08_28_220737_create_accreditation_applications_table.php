@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('accreditation_applications', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('type_of_application_id');
-            $table->uuid('country_id');
             $table->uuid('scope_of_operation_id');
             $table->uuid('official_language_id');
             $table->uuid('cso_classification_id');
+            $table->uuid('application_status_id');
             $table->string('cso_registration_number');
             $table->date('cso_registration_date');
             $table->date('registration_expiring_date');
@@ -39,7 +39,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('scope_of_operation_id')->references('id')->on('scope_of_operations');
             $table->foreign('type_of_application_id')->references('id')->on('type_of_applications');
-            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('application_status_id')->references('id')->on('application_statuses');
             $table->foreign('official_language_id')->references('id')->on('official_languages');
             $table->foreign('cso_classification_id')->references('id')->on('cso_classifications');
         });

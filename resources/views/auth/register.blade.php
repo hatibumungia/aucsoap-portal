@@ -173,7 +173,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Classification of CSO</label>
-                                            <select class="form-control" name="classification_id"  id="classification_id">
+                                            <select class="form-control" name="cso_classification_id"  id="cso_classification_id">
                                                 <option>{{ __('----Select Classification of CSO----') }} </option>
                                                 @foreach ($classifications as $classification)
                                                     <option value="{{ $classification->id }}" @selected(old('classification_id') == $classification->name)>
@@ -243,6 +243,20 @@
                                                    value="{{ $contact->cso_years_of_experience ?? old('cso_years_of_experience') }}" autofocus>
                                         </div>
                                     </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>CSO granted status</label>
+                                            <select class="form-control" name="type_of_application_id"  id="type_of_application_id">
+                                                <option>{{ __('----Select CSO operation scope----') }} </option>
+                                                @foreach ($typeOfApplications as $typeOfApplication)
+                                                    <option value="{{ $typeOfApplication->id }}" @selected(old('type_of_application_id') == $typeOfApplication->name)>
+                                                        {{ $typeOfApplication->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -250,19 +264,19 @@
                     </div>
                     <!-- END timeline item -->
                     <!-- timeline time label -->
-                    <div class="time-label">
-                        <span class="bg-green">3 Jan. 2014</span>
-                    </div>
+{{--                    <div class="time-label">--}}
+{{--                        <span class="bg-green">3 Jan. 2014</span>--}}
+{{--                    </div>--}}
                     <!-- /.timeline-label -->
                     <!-- timeline item -->
                     <div>
                         <i class="fa fa-camera bg-purple"></i>
                         <div class="timeline-item">
 {{--                            <span class="time"><i class="fas fa-clock"></i> 2 days ago</span>--}}
-                            <h3 class="timeline-header"><a href="#">CSO Accreditation</a> Details</h3>
+                            <h3 class="timeline-header"><a href="#">CSO Attachments</a> File</h3>
                             <div class="timeline-body">
 
-                                <div class="row">
+                                {{--<div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>CSO accreditation number</label>
@@ -284,39 +298,7 @@
                                                    value="{{ $contact->accreditation_expiring_date ?? old('accreditation_expiring_date') }}" autofocus>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>CSO granted status</label>
-                                            <select class="form-control" name="type_of_application_id"  id="type_of_application_id">
-                                                <option>{{ __('----Select CSO operation scope----') }} </option>
-                                                @foreach ($typeOfApplications as $typeOfApplication)
-                                                    <option value="{{ $typeOfApplication->id }}" @selected(old('type_of_application_id') == $typeOfApplication->name)>
-                                                        {{ $typeOfApplication->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Accreditation date</label>
-                                            <input type="text" name="accreditation_date" class="form-control" required placeholder="{{ __('Enter Accreditation date') }}"
-                                                   value="{{ $contact->accreditation_date ?? old('accreditation_date') }}" autofocus>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Accreditation expiring date</label>
-                                            <input type="text" name="accreditation_expiring_date" class="form-control" required placeholder="{{ __('Enter accreditation expiring date') }}"
-                                                   value="{{ $contact->accreditation_expiring_date ?? old('accreditation_expiring_date') }}" autofocus>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>--}}
 
 
                                 <div class="row">
